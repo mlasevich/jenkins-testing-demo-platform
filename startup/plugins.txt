@@ -1,0 +1,8 @@
+workflow-job:latest
+workflow-cps:latest
+workflow-aggregator:latest
+configuration-as-code:latest
+configuration-as-code-groovy:latest
+configuration-as-code-support:latest
+job-dsl:latest
+xml-job-to-job-dsl:latest

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  jenkins:
+    image: 'jenkins/jenkins:lts-jdk11'
+    entrypoint:
+      - /sbin/tini
+      - "--"
+      - /startup/startup.sh
+    environment:
+     - CASC_JENKINS_CONFIG=/startup/jcasc.yaml
+     - JAVA_OPTS=-Dnetworkaddress.cache.ttl=0 -Dsomething.else=0 -Djenkins.install.runSetupWizard=false
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+      - '50000:50000'
+    volumes:
+      # uncomment to keep jenkins home between restarts
+      #- ./data:/var/jenkins_home
+      - ./startup:/startup
