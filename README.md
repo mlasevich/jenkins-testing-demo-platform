@@ -24,10 +24,27 @@ Working installation of Docker and docker-compose
 
 ### Home directory
 
-By default, home directory and all the configuration is not kept between runs
-If you want to keep in, uncomment the line in [docker-compose.yaml]()
+By default, home directory and all the configuration is *_not_* kept between 
+runs
+If you want to keep in, uncomment the appropriate line in [docker-compose.
+yaml]()
 
+    volumes:
+      # uncomment to keep jenkins home between restarts
+      #- ./data:/var/jenkins_home
+      - ./startup:/startup
 
 ### Running
 
-Simple `docker-compose up` and `docker-compose down` will do
+Simple `docker-compose up` and `docker-compose down` commands will do
+
+Since I ofter run this repeatedly, I often do things like:
+
+    docker-compose up; docker-compose down
+
+or even:
+
+    while true; do docker-compose up; docker-compose down; done
+
+This way the test setup runs in foreground  until you hit CTRL-C and then 
+cleans up.
