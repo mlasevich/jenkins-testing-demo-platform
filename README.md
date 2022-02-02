@@ -15,19 +15,18 @@ Working installation of Docker and docker-compose
 
 ### Configure
 
-1. Configure plugin list in [startup/plugins.txt]()
+1. Configure plugin list in [startup/plugins.txt](./startup/plugins.txt)
 
-2. Configure startup config in [startup/jcasc.yaml]()
+2. Configure startup config in [startup/jcasc.yaml](./startup/jcasc.yaml)
 
-3. Configure seed job in JobDSL format in  [startup/jobs.groovy]()
+3. Configure seed job in JobDSL format in  [startup/jobs.groovy](./startup/jobs.groovy)
 
 
 ### Home directory
 
 By default, home directory and all the configuration is *_not_* kept between 
 runs
-If you want to keep in, uncomment the appropriate line in [docker-compose.
-yaml]()
+If you want to keep in, uncomment the appropriate line in [startup/jobs.groovy](./startup/jobs.groovy)
 
     volumes:
       # uncomment to keep jenkins home between restarts
